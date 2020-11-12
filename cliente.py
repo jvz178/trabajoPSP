@@ -1,5 +1,4 @@
 import socket
-import time
 
 #Establecemos la conexion
 s=socket.socket()
