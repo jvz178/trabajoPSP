@@ -5,7 +5,7 @@ import os, os.path
 
 
 class Cliente(Thread):
-    def __init__(self, socket_cliente,  email_cliente)
+    def __init__(self, socket_cliente,  email_cliente):
         Thread.__init__(self)
         self.socket = socket_cliente
         self.email = email_cliente
