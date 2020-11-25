@@ -14,6 +14,7 @@ class Cliente:
         if respuesta == "ok":
             self.conectado = True
             print("login con exito")
+        else: print(respuesta)
 
     def logout(self):
         if self.conectado:
