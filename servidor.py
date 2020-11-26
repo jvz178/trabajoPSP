@@ -47,7 +47,7 @@ class Servidor:
                 listado = []
                 listado.append(fichero.readline())
                 listado.append(int)(fichero.readline())
-                respuestas[pregunta]=listado[1]
+                self.respuestas[pregunta]=listado[1]
                 listado.append(fichero.readline())
                 listado.append(fichero.readline())
                 listado.append(fichero.readline())
@@ -63,7 +63,7 @@ class Servidor:
         return "ok"
     
     def logout(self, nombre):
-        if nombre in conectados:
+        if nombre in self.conectados:
             self.conectados.remove(nombre)
             self.usuarioGrupo.pop(nombre)
             return "ok"
@@ -80,7 +80,7 @@ class Servidor:
              listado.append(fichero.readline())
              lista_competiciones.append(listado)
         competiciones[competicion] = lista_competiciones
-    return competiciones
+        return competiciones
 
     # Marcar las competiciones (inscritas, finalizadas y en curso)
 
@@ -96,12 +96,12 @@ class Servidor:
 
     def mostrarPreguntas(self, competicion):
         if competicion in self.competiciones.keys():
-            return competiciones[competicion]
+            return self.competiciones[competicion]
         return "La competicion no esta en curso"
 
     def recibirRespuesta(self, competicion,  pregunta, respuesta):
         if competicion in self.competiciones.keys():
-            if respuestas[pregunta]==respuesta:
+            if self.respuestas[pregunta]==respuesta:
                 self.puntuaciones[pregunta]=1
             self.puntuaciones[pregunta]=-0.2
 # Contador, para que cuando llegue a 10 preguntas sumemos las puntuaciones
