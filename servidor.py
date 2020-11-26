@@ -4,12 +4,8 @@ import random
 #Hola
 puntuacionTotal=0
 
-
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-
-socket_cliente, datos_cliente = server.accept()
-print("Conectado "+str(datos_cliente))
+serv = Servidor()
+cli = Cliente()
 
 class Cliente(Thread):
     def __init__(self, socket_cliente, serv):
