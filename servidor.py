@@ -1,19 +1,15 @@
 import socket
 from threading import Thread
 import random
-#Hola
+
 puntuacionTotal=0
 
-serv = Servidor()
-cli = Cliente()
 
 class Cliente(Thread):
     def __init__(self, socket_cliente, serv):
         Thread.__init__(self)
         self.socket = socket_cliente
         self.servidor = serv
- 
-
 
 
 class Servidor:
@@ -103,6 +99,12 @@ class Servidor:
         
 
 
+#Usar métodos
+
+serv = Servidor()
+cli = Cliente()
+
+serv.__init__()
 
 
 
