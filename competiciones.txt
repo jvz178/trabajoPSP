@@ -1,0 +1,9 @@
+competicion1 
+10/01/2020
+20:30
+competicion2 X
+1/09/2019
+17:00
+competicion3 <- *
+23/06/2020
+18:00

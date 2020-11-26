@@ -2,6 +2,17 @@ import socket
 from threading import Thread
 import random
 
+#  while 1:
+#      # Se espera a un cliente
+#      socket_cliente, datos_cliente = server.accept()
+#       # Se escribe su informacion
+#      print ("conectado "+str(datos_cliente))
+#       hilo = Cliente(socket_cliente)
+#       hilo.start()
+
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind(("",8000))
+server.listen(1)
 
 
 class Cliente(Thread):
@@ -36,6 +47,7 @@ class Servidor:
                 listado = []
                 listado.append(fichero.readline())
                 listado.append(int)(fichero.readline())
+                respuestas[pregunta]=listado[1]
                 listado.append(fichero.readline())
                 listado.append(fichero.readline())
                 listado.append(fichero.readline())
@@ -57,25 +69,48 @@ class Servidor:
             return "ok"
         return "logout imposible"
 
-    def listar(self):
+    def listarCompeticiones(self):
+        fichero = open("competiciones.txt")
+        competiciones = {}
+        lista_competiciones = []
+        for competicion in range(10):
+             listado = []
+             listado.append(fichero.readline())
+             listado.append(fichero.readline())
+             listado.append(fichero.readline())
+             lista_competiciones.append(listado)
+        competiciones[competicion] = lista_competiciones
+    return competiciones
+
+    # Marcar las competiciones (inscritas, finalizadas y en curso)
+
+
 
 
     def inscribir(self, nombre, participantes):
         if nombre in self.equipos.keys():
-            return "imposible inscriubir equipo"
+            return "imposible inscribir equipo"
         self.equipos[nombre] = participantes
         self.puntuaciones[nombre] = 0
         return "ok"
 
     def mostrarPreguntas(self, competicion):
         if competicion in self.competiciones.keys():
+            return competiciones[competicion]
+        return "La competicion no esta en curso"
 
-# bucle para atender clientes
-while 1:
-    # Se espera a un cliente
-    socket_cliente, datos_cliente = server.accept()
-    # Se escribe su informacion
-    print ("conectado "+str(datos_cliente))
-    hilo = Cliente(socket_cliente)
-    hilo.start()
-    
+    def recibirRespuesta(self, competicion,  pregunta, respuesta):
+        if competicion in self.competiciones.keys():
+            if respuestas[pregunta]==respuesta:
+                self.puntuaciones[pregunta]=1
+            self.puntuaciones[pregunta]=-0.2
+# Contador, para que cuando llegue a 10 preguntas sumemos las puntuaciones
+        for pregunta in range(10):
+            puntuacionTotal+=self.puntuaciones[pregunta]
+        return puntuacionTotal
+        
+
+
+
+
+
