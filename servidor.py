@@ -13,6 +13,7 @@ class Cliente(Thread):
 
 
 class Servidor:
+    #__init__ es el constructor
     def __init__(self):
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.bind(("", 9999))
@@ -103,8 +104,6 @@ class Servidor:
 
 serv = Servidor()
 cli = Cliente()
-
-serv.__init__()
 
 
 
