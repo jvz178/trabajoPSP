@@ -1,7 +1,7 @@
 import socket
 from threading import Thread
 import random
-
+#Hola
 puntuacionTotal=0
 
 
