@@ -1,5 +1,7 @@
 import socket
-#Hola
+
+# Vaya tela
+
 
 class Cliente:
     def __init__(self, nombre):
@@ -59,6 +61,7 @@ class Cliente:
             tam_datos = (int)(self.socket.recv(256))
             respuesta = self.socket.recv(tam_datos)
             print(respuesta)
+
 
     def menu(self):
         opciones = {"1":login, "2":logout, "3":listar, "4":inscribirGrupo, "5":mostrarPreguntas, "6":enviarRespuesta}
