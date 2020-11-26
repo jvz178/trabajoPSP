@@ -70,8 +70,6 @@ class Servidor:
     def mostrarPreguntas(self, competicion):
         if competicion in self.competiciones.keys():
 
-
-
 # bucle para atender clientes
 while 1:
     # Se espera a un cliente
