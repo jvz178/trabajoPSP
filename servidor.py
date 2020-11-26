@@ -101,4 +101,10 @@ class Servidor:
         
 
 
-#Usar métodos
+while 1:
+    # Se espera a un cliente
+    socket_cliente, datos_cliente = server.accept()
+    # Se escribe su informacion
+    print ("conectado "+str(datos_cliente))
+    hilo = Cliente(socket_cliente)
+    hilo.start()
