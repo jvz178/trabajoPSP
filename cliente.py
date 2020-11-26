@@ -7,7 +7,7 @@ class Cliente:
     def __init__(self, nombre):
         self.nombre = nombre
         self.socket = socket()
-        self.socket.conect("localhost", 9999);
+        self.socket.conect("localhost", 9999)
         self.conectado = False
     
     def login(self):

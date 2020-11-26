@@ -14,6 +14,7 @@ class Cliente(Thread):
 
 class Servidor:
     #__init__ es el constructor
+    #self se refiere a la instancia actual
     def __init__(self):
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.server.bind(("", 9999))
@@ -101,9 +102,3 @@ class Servidor:
 
 
 #Usar métodos
-
-serv = Servidor()
-cli = Cliente()
-
-
-
