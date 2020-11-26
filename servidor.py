@@ -17,7 +17,7 @@ class Servidor:
     #self se refiere a la instancia actual
     def __init__(self):
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        self.server.bind(("", 9999))
+        self.server.bind(("", 8000))
         self.server.listen(1)
         self.conectados = [] #nombres de participantes
         self.equipos = {} #nombre_equipo: lista de participantes
@@ -74,8 +74,9 @@ class Servidor:
 
     # Marcar las competiciones (inscritas, finalizadas y en curso)
 
-
-
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.bind(("", 9999))
+    server.listen(1)
 
     def inscribir(self, nombre, participantes):
         if nombre in self.equipos.keys():
@@ -99,7 +100,9 @@ class Servidor:
             puntuacionTotal+=self.puntuaciones[pregunta]
         return puntuacionTotal
         
-
+server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server.bind(("", 8000))
+server.listen(1)
 
 while 1:
     # Se espera a un cliente

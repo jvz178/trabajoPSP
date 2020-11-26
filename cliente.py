@@ -88,7 +88,7 @@ while seguir:
 '''
 #Establecemos la conexion
 s=socket.socket()
-s.connect('localhost', 9999)
+s.connect('localhost', 8000)
 
 #Enviar
 
