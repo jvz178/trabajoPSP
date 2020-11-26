@@ -76,7 +76,7 @@ class Cliente:
         opciones.get(opcion,menu)()
         return True
 
-nombre = input("esciba su identificador")
+nombre = input("escriba su identificador")
 cliente = Cliente(nombre)
 seguir = True
 while seguir:

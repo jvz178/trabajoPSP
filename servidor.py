@@ -2,18 +2,15 @@ import socket
 from threading import Thread
 import random
 
-#  while 1:
-#      # Se espera a un cliente
-#      socket_cliente, datos_cliente = server.accept()
-#       # Se escribe su informacion
-#      print ("conectado "+str(datos_cliente))
-#       hilo = Cliente(socket_cliente)
-#       hilo.start()
+puntuacionTotal=0
+
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(("",8000))
+server.bind(("",9999))
 server.listen(1)
 
+socket_cliente, datos_cliente = server.accept()
+print("Conectado "+str(datos_cliente))
 
 class Cliente(Thread):
     def __init__(self, socket_cliente, serv):
@@ -80,7 +77,7 @@ class Servidor:
              listado.append(fichero.readline())
              lista_competiciones.append(listado)
         competiciones[competicion] = lista_competiciones
-    return competiciones
+        return competiciones
 
     # Marcar las competiciones (inscritas, finalizadas y en curso)
 
