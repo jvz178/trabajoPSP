@@ -6,8 +6,7 @@ puntuacionTotal=0
 
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(("",9999))
-server.listen(1)
+
 
 socket_cliente, datos_cliente = server.accept()
 print("Conectado "+str(datos_cliente))
