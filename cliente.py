@@ -1,13 +1,10 @@
 import socket
 
-# Vaya tela
-
-
 class Cliente:
     def __init__(self, nombre):
         self.nombre = nombre
         self.socket = socket()
-        self.socket.conect("localhost", 9999)
+        self.socket.connect(("localhost", 8000))
         self.conectado = False
     
     def login(self):
@@ -84,15 +81,3 @@ cliente = Cliente(nombre)
 seguir = True
 while seguir:
     seguir = cliente.menu()
-
-'''
-#Establecemos la conexion
-s=socket.socket()
-s.connect('localhost', 8000)
-
-#Enviar
-
-s.send("Hola")
-
-#Cerrar conexion
-s.close()'''

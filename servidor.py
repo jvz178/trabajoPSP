@@ -99,15 +99,3 @@ class Servidor:
         for pregunta in range(10):
             puntuacionTotal+=self.puntuaciones[pregunta]
         return puntuacionTotal
-        
-server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-server.bind(("", 8000))
-server.listen(1)
-
-while 1:
-    # Se espera a un cliente
-    socket_cliente, datos_cliente = server.accept()
-    # Se escribe su informacion
-    print ("conectado "+str(datos_cliente))
-    hilo = Cliente(socket_cliente)
-    hilo.start()
