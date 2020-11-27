@@ -99,3 +99,6 @@ class Servidor:
         for pregunta in range(10):
             puntuacionTotal+=self.puntuaciones[pregunta]
         return puntuacionTotal
+
+
+servidor1 = Servidor()

@@ -81,3 +81,9 @@ cliente = Cliente(nombre)
 seguir = True
 while seguir:
     seguir = cliente.menu()
+
+
+
+cliente1 = Cliente()
+
+cliente1.login()
